@@ -11,11 +11,11 @@ import { FilterContext } from "../provider/ProviderFilter";
 export default function List() {
   const [todoList, setTodoList] = useState([]);
   const [selectedItems, setSelectedItems] = useContext(SelectedItems);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const { filterState, setFilterState } = useContext(FilterContext);
   // console.log(todoList);
-  console.log("filter state:", filterState);
+  // console.log("filter state:", filterState);
 
   useEffect(() => {
     async function fetchData() {
@@ -63,28 +63,32 @@ export default function List() {
 
   return (
     <div className="relative flex w-full h-[380px] max-sm:h-[700px] overflow-y-auto py-3">
-      {loading && (
-      <div className="flex w-full h-full p-12">
-        <SkeletonLoading />
-      </div>
-      )}
-      {todoList.length < 1 && (
-        <div className="flex w-full h-full justify-center items-center">
-          <div className="flex flex-col items-center">
-            <IoTrashBinOutline size={50} />
-            <label className="text-xl italic">No Data</label>
-          </div>
+      {loading ? (
+        <div className="flex w-full h-full p-12">
+          <SkeletonLoading />
         </div>
+      ) : (
+        <>
+          {todoList.length < 1 ? (
+            <div className="flex w-full h-full justify-center items-center">
+              <div className="flex flex-col items-center">
+                <IoTrashBinOutline size={50} />
+                <label className="text-xl italic">No Data</label>
+              </div>
+            </div>
+          ) : (
+            <div className="flex-1 flex flex-col gap-7 w-full min-h-full overflow-y-auto">
+              {todoList.map((item) => (
+                <TodoCard
+                  key={item.id}
+                  prop={item}
+                  handleSelection={handleSelection}
+                />
+              ))}
+            </div>
+          )}
+        </>
       )}
-      <div className="flex-1 flex flex-col gap-7 w-full min-h-full overflow-y-auto ">
-        {todoList.map((item) => (
-          <TodoCard
-            key={item.id}
-            prop={item}
-            handleSelection={handleSelection}
-          />
-        ))}
-      </div>
       <div className="flex flex-row items-center gap-5 absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4">
         <AddTodoModal />
         {selectedItems.length > 0 && <Multiselection />}

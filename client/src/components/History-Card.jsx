@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { MdAutoDelete } from "react-icons/md";
 import { formatDate } from "../utils";
 import CategoryConverter from "./CategoryConverter";
 
@@ -26,10 +25,6 @@ export default function HistoryCard({ prop, handleSelection }) {
   return (
     <div className="flex flex-row w-full h-[70px] gap-1">
       <div className="flex flex-row justify-evenly items-center w-[20%] max-sm:w-[20%]">
-        <button className="">
-          <MdAutoDelete fill="#383838" size={32} />
-        </button>
-        
         <input
           onChange={handleChecked}
           checked={isChecked}

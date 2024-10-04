@@ -34,6 +34,9 @@ export default function AddTaskForm() {
       
       await fetch(apiUrl + `/todo`, {
         method: 'post',
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(newTask)
       })
       await Toast.fire({

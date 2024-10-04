@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { MdOutlinePlaylistRemove } from "react-icons/md";
 import { useState } from "react";
 import { formatDate } from "../utils";
 import CategoryConverter from "./CategoryConverter";
@@ -26,9 +25,6 @@ export default function TodoCard({ prop, handleSelection }) {
   return (
     <div className="flex flex-row w-full h-[70px] gap-1">
       <div className="flex flex-row justify-evenly items-center w-[20%] max-sm:w-[20%]">
-        <button className="max-sm:hidden">
-          <MdOutlinePlaylistRemove fill="#383838" size={32} />
-        </button>
         <EditTodo prop={prop} />
         <input
           onChange={handleChecked}

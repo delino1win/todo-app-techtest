@@ -1,6 +1,7 @@
 import Swal from "sweetalert2"
 
-export const apiUrl = "http://localhost:3000"
+// "http://localhost:3000"
+export const apiUrl = "https://quill-awake-argument.glitch.me"
 
 //handle register dan login menghindari duplikasi
 export async function submitUsername (username) {

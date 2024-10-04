@@ -5,7 +5,7 @@ export default function AddTodoModal() {
   return (
     <div className="">
       <button
-        className="p-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-gray-200 text-lg tracking-wider btn-wide hover:shadow-lg hover:shadow-gray-300 transition-all duration-300"
+        className="p-3 rounded-lg bg-gradient-to-r from-blue-200 to-cyan-200 text-gray-600 text-lg tracking-wider btn-wide hover:shadow-lg hover:shadow-gray-300 transition-all duration-300"
         onClick={() => {
           if (!localStorage.getItem("id")) {
             return Swal.fire({
