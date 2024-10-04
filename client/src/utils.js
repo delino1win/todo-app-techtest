@@ -19,4 +19,18 @@ export const Toast = Swal.mixin({
   }
 });
 
+export function formatDate(isoString) {
+  const date = new Date(isoString);
 
+  // Convert the ISO string into the format "12 April 2023, 14:30"
+  const formattedDate = date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false, // 24-hour format, change to true for 12-hour with AM/PM
+  });
+
+  return formattedDate;
+}

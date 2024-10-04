@@ -1,29 +1,32 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react"
-import { generateNanoid, Toast } from "../utils"
-import Swal from "sweetalert2"
+import { Toast } from "../utils"
 import { apiUrl } from "../fetch"
+import Swal from "sweetalert2"
+import {useNavigate} from 'react-router-dom'
 
-export default function AddTaskForm() {
+export default function EditTaskForm({prop}) {
 
-  const [inputTask, setInputTask] = useState("")
-  const [category, setCategory] = useState("")
+  const [inputTask, setInputTask] = useState(prop.desc)
+  const [category, setCategory] = useState(prop.category)
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   const submitHandler = async (event) => {
     event.preventDefault()
 
-    let newTask = {
-      id: generateNanoid(),
-      userId: localStorage.getItem("id"),
-      desc: inputTask,
-      category: category,
-      isDone: false,
-      createdAt: new Date().toISOString()
-    }
+    // let newTask = {
+    //   id: generateNanoid(),
+    //   userId: localStorage.getItem("id"),
+    //   desc: inputTask,
+    //   category: category,
+    //   isDone: false,
+    //   createdAt: new Date().toISOString()
+    // }
 
-    if(!newTask.desc || !newTask.category) {
+    if(!inputTask || !category) {
       return Toast.fire({
-        title: "Desc or Category is Empty",
+        title: "Desc is Empty",
         icon: "error"
       })
     }
@@ -32,12 +35,16 @@ export default function AddTaskForm() {
 
       setLoading(true)
       
-      await fetch(apiUrl + `/todo`, {
-        method: 'post',
-        body: JSON.stringify(newTask)
+      await fetch(apiUrl + `/todo/${prop?.id}`, {
+        method: 'put',
+        body: JSON.stringify({
+          ...prop,
+          desc: inputTask,
+          category: category
+        })
       })
       await Toast.fire({
-        title: "To Do Added",
+        title: "Description Updated",
         icon: "success"
       })
 
@@ -51,7 +58,8 @@ export default function AddTaskForm() {
       setLoading(false)
 
       if(!loading) {
-        window.location.reload()
+        // window.location.reload()
+        navigate(0)
       }
     }
   }
@@ -59,17 +67,18 @@ export default function AddTaskForm() {
   const categoryHandler = (event) => {
     const value = event.target.value
     setCategory(value)
-    // console.log("selectHandler:", value)
+    // console.log("selectHandler:", value) 
   }
 
   return (
     <form onSubmit={submitHandler} className="flex flex-col gap-5">
       <textarea
+        value={inputTask}
         onChange={e => setInputTask(e.target.value)}
-        placeholder="Describe Your Task . . ."
+        placeholder="Change your mind eh? . . ."
         className="textarea textarea-bordered textarea-lg w-full"
       ></textarea>
-      <select onChange={categoryHandler} className="select w-full hover:shadow-md shadow-gray-600 transition-all duration-500">
+      <select value={category} onChange={categoryHandler} className="select w-full hover:shadow-md shadow-gray-600 transition-all duration-500">
         <option disabled selected>
           Pick the category of your task
         </option>

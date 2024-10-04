@@ -8,22 +8,22 @@ export default function CategoryConverter(prop) {
 
   const {prop:icon} = prop
 
-  const size = "size-[57px] max-sm:size-[40px]"
+  const size = "size-[40px] max-sm:size-[30px]"
 
   if(icon === 'shopping') {
-    return <GiShoppingBag className={`${size}`} />
+    return <GiShoppingBag fill="yellowgreen" className={`${size}`} />
   }
 
   if(icon === 'exercise') {
-    return <FaDumbbell className={`${size}`} />
+    return <FaDumbbell fill="orange" className={`${size}`} />
   }
 
   if(icon === 'work') {
-    return <FiWatch className={`${size}`} />
+    return <FiWatch fill="skyblue" className={`${size}`} />
   }
 
   if(icon === 'other') {
-    return <BsFillQuestionCircleFill className={`${size}`} />
+    return <BsFillQuestionCircleFill fill="" className={`${size}`} />
   }
   
 }

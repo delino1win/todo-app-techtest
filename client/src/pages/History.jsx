@@ -3,7 +3,7 @@
 export default function History() {
   return (
     <div>
-      History Page      
+      History Page
     </div>
   )
 }

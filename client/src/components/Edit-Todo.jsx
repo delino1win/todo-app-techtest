@@ -1,11 +1,15 @@
+/* eslint-disable react/prop-types */
+import { FaRegEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
-import AddTaskForm from "./AddTask-Form";
+import EditTaskForm from "./EditTask-Form";
 
-export default function AddTodoModal() {
+
+export default function EditTodo({prop}) {
+
   return (
     <div className="">
       <button
-        className="p-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-gray-200 text-lg tracking-wider btn-wide hover:shadow-lg hover:shadow-gray-300 transition-all duration-300"
+        className=""
         onClick={() => {
           if (!localStorage.getItem("id")) {
             return Swal.fire({
@@ -15,12 +19,15 @@ export default function AddTodoModal() {
               showCloseButton: true,
             });
           }
-          document.getElementById("my_modal_2").showModal();
+          document.getElementById("my_modal_3").showModal();
         }}
       >
-        New Task
+        <FaRegEdit
+            fill="#383838"
+            className="size-[32px] max-sm:size-[24px]"
+          />
       </button>
-      <dialog id="my_modal_2" className="modal">
+      <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -28,11 +35,11 @@ export default function AddTodoModal() {
             </button>
           </form>
           <h3 className="font-bold text-lg mb-5">
-            Hi, What is your plan for today?
+            Hi, want to update your plan?
           </h3>
-          <AddTaskForm />
+          <EditTaskForm prop={prop} />
         </div>
       </dialog>
     </div>
-  );
+  )
 }

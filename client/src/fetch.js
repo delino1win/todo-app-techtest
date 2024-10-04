@@ -44,9 +44,9 @@ export async function submitUsername (username) {
   }
 }
 
-export async function getListTodo() {
+export async function getListTodo(url) {
   try {
-    const res = await fetch(apiUrl + '/todo');
+    const res = await fetch(url);
 
     // console.log("res: ", res)
 
