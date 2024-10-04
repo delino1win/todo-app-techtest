@@ -44,8 +44,9 @@ export async function submitUsername (username) {
   }
 }
 
-export async function getListTodo(url) {
+export async function getListTodo(url, setLoading) {
   try {
+    setLoading(true)
     const res = await fetch(url);
 
     // console.log("res: ", res)
@@ -63,5 +64,7 @@ export async function getListTodo(url) {
     return data;
   } catch (error) {
     console.error(error);
+  } finally {
+    setLoading(false)
   }
 }
