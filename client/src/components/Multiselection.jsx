@@ -35,7 +35,9 @@ export default function Multiselection() {
             try {
               const res = await fetch(apiUrl + `/todo/${item.id}`, {
                 method: "put",
-                "Content-Type": "application/json",
+                headers: {
+                  "Content-Type": "application/json",
+                },
                 body: JSON.stringify({
                   ...item,
                   isDone: true,
