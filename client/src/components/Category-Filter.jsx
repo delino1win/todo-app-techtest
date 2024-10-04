@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FilterContext } from "../provider/FIlterProvider";
+import { FilterContext } from "../provider/ProviderFilter";
 
 export default function CategoryFilter() {
 

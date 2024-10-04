@@ -2,10 +2,10 @@ import { Outlet } from "react-router-dom";
 import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { FilterProvider } from "./provider/FIlterProvider";
+import { FilterProvider } from "./provider/ProviderFilter";
 
 // export const TodoList = React.createContext();
-export const SelectedItems = React.createContext();
+export const SelectedItems = React.createContext([]);
 export const Loading = React.createContext();
 
 function App() {

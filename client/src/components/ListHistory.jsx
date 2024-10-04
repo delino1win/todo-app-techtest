@@ -5,8 +5,9 @@ import { apiUrl, getListTodo } from "../fetch";
 import { MdHistory } from "react-icons/md";
 import HistoryCard from "./History-Card";
 import Multideletion from "./MultiDeletion";
-import { FilterContext } from "../provider/FIlterProvider";
+
 import SkeletonLoading from "./Skeleton-Loading";
+import { FilterContext } from "../provider/ProviderFilter";
 
 export default function ListHistory() {
   const [listHistory, setListHistory] = useState([]);
@@ -14,7 +15,6 @@ export default function ListHistory() {
   const [loading, setLoading] = useState(false)
 
   const { filterState, setFilterState } = useContext(FilterContext);
-
 
   // console.log(todoList);
 

@@ -49,17 +49,9 @@ export async function getListTodo(url, setLoading) {
     setLoading(true)
     const res = await fetch(url);
 
-    // console.log("res: ", res)
-
     if(!res.ok) return
 
     const data = await res.json();
-
-    // console.log("data origin: ", data)
-
-    // const taskFiltered = data.filter((item) => item.isDone !== true);
-
-    // console.log("data filtered: ", taskFiltered)
 
     return data;
   } catch (error) {

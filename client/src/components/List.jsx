@@ -5,8 +5,8 @@ import { IoTrashBinOutline } from "react-icons/io5";
 import TodoCard from "./Todo-Card";
 import { apiUrl, getListTodo } from "../fetch";
 import Multiselection from "./Multiselection";
-import { FilterContext } from "../provider/FIlterProvider";
 import SkeletonLoading from "./Skeleton-Loading";
+import { FilterContext } from "../provider/ProviderFilter";
 
 export default function List() {
   const [todoList, setTodoList] = useState([]);
@@ -62,7 +62,7 @@ export default function List() {
   }
 
   return (
-    <div className="relative flex w-full h-[380px] max-sm:h-[90%] overflow-y-auto py-3">
+    <div className="relative flex w-full h-[380px] max-sm:h-[700px] overflow-y-auto py-3">
       {loading && (
       <div className="flex w-full h-full p-12">
         <SkeletonLoading />

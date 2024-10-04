@@ -42,8 +42,8 @@ export default function Logout() {
   };
 
   return (
-    <button className="hover:text-red-500 tracking-wider" onClick={logout}>
-      Logout
+    <button className="btn max-sm:btn-sm hover:text-red-500 tracking-wider" onClick={logout}>
+      Sign Out
     </button>
   );
 }

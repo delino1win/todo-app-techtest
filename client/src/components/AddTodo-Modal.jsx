@@ -11,7 +11,7 @@ export default function AddTodoModal() {
             return Swal.fire({
               icon: "error",
               title: "Unidentified User",
-              text: "Insert Your Username first!",
+              text: "Authenticated Yourself first",
               showCloseButton: true,
             });
           }
