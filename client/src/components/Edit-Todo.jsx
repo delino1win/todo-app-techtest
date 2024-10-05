@@ -19,7 +19,7 @@ export default function EditTodo({prop}) {
               showCloseButton: true,
             });
           }
-          document.getElementById("my_modal_3").showModal();
+          document.getElementById(`my_modal_${prop.id}`).showModal();
         }}
       >
         <FaRegEdit
@@ -27,7 +27,7 @@ export default function EditTodo({prop}) {
             className="size-[32px] max-sm:size-[24px]"
           />
       </button>
-      <dialog id="my_modal_3" className="modal">
+      <dialog id={`my_modal_${prop.id}`} className="modal">
         <div className="modal-box">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">

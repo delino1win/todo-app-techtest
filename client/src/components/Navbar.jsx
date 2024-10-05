@@ -30,7 +30,7 @@ export default function Navbar() {
           {getCredentialId ? <MiniProfile /> : <UsernameForm />}
         </div>
       </div>
-      <div className="sm:hidden w-full flex justify-end items-center border-b-[2px] border-gray-400 h-full">
+      <div className="sm:hidden fixed z-50 py-3 w-full flex justify-end items-center border-b-[2px] bg-gray-200 border-gray-400">
         <div className="flex flex-row justify-between w-full items-center px-3">
           <Link to="/" className="flex flex-row items-end"><GoHome className="size-10" /></Link>
           {getCredentialId ? <MbAuthenticated /> : <MbSignin />}

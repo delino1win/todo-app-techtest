@@ -62,7 +62,7 @@ export default function List() {
   }
 
   return (
-    <div className="relative flex w-full h-[380px] max-sm:h-[700px] overflow-y-auto py-3">
+    <div className="relative flex w-full h-[380px] max-sm:h-[520px] overflow-y-auto py-3">
       {loading ? (
         <div className="flex w-full h-full p-12">
           <SkeletonLoading />
